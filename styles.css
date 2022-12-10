@@ -1,0 +1,63 @@
+.textarea_request {
+    border: 1px solid lightgray;
+    font: small -moz-fixed;
+    font: -webkit-small-control;
+    height: 100%;
+    overflow: auto;
+    padding: 5px;
+    resize: both;
+    width: 100%;
+}
+
+.textarea_response {
+    border: 1px solid lightgray;
+    font: small -moz-fixed;
+    font: -webkit-small-control;
+    height: 50vh;
+    overflow: auto;
+    padding: 5px;
+    resize: both;
+    width: 100%;
+    background-color: white;
+}
+
+.highlight {
+    color: red;
+    font-weight: bold;
+}
+
+.highlight_text_sm {
+    font-size: 0.75em;    
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+.highlight_parameter {
+    color: black;
+    background-color: yellow;
+} 
+
+.highlight_headline {
+    color: black;
+    background-color: yellow;
+    font-weight: bold;
+} 
+
+.highlight_destinationTravelRestrictions {
+    color: white;
+    background-color: cornflowerblue;
+    font-weight: bold;
+} 
+
+.highlight_visas {
+    color: white;
+    background-color: lightseagreen;
+    font-weight: bold;
+}
+ 
+iframe.results {
+    width: 100%;  
+    height: 600px;
+    border:2px solid lightgray; 
+} 
