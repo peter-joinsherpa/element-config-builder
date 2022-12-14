@@ -104,6 +104,15 @@
             <label for="returnDate" class="form-label">Return Date: (For Round Trip only)</label>
             <input type="date" class="form-control" id="returnDate" disabled onchange="generateExampleCode('returnDate')"> 
             
+<!-- Analytics/UTM Codes -->
+            <br />
+            <label for="utm_medium" class="form-label">Analytics/UTM Codes:</label>
+            <div class="row">
+                <div class="col-sm-4"><input class="form-control" id="utm_medium" type="text" placeholder="utm_medium" onchange="generateExampleCode('utm_medium')"></div>
+                <div class="col-sm-4"><input class="form-control" id="utm_source" type="text" placeholder="utm_source" onchange="generateExampleCode('utm_source')"></div>
+                <div class="col-sm-4"><input class="form-control" id="utm_campaign" type="text" placeholder="utm_campaign" onchange="generateExampleCode('utm_campaign')"></div>
+            </div>
+
 <!-- Feature Flags -->             
             <br />
             <div class="form-check form-switch">

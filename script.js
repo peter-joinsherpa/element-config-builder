@@ -54,7 +54,7 @@ function initialLoad() {
         document.getElementById(key).checked = value;
         
     }     
-    
+
 // Display Example Code
     generateExampleCode("initialLoad") 
 
@@ -98,6 +98,11 @@ function generateExampleCode(idName) {
     let appid = document.getElementById("appid").value;
     let features = config.features;
     
+    let utm = {};
+    utm['utm_medium'] = document.getElementById("utm_medium").value.trim();
+    utm['utm_source'] = document.getElementById("utm_source").value.trim();
+    utm['utm_campaign'] = document.getElementById("utm_campaign").value.trim();
+
     try {
 
 // Set feature flags from UI
@@ -211,6 +216,18 @@ function generateExampleCode(idName) {
             elementConfig += `,\nfeatures: {\n${featuresModel}}`;
         }
 
+// Analytics/UTM Codes
+        let queryParams = '';
+        for (const [key, value] of Object.entries(utm)) {
+
+            if (value) {
+                queryParams += `\t${key}: '${value}',\n`;
+            }
+        }
+        if (queryParams) {
+            elementConfig += `,\nqueryParams: {\n${queryParams}}`;
+        }        
+
 // Load code into Example textarea
         exampleCode = exampleCode.replace('{{ELEMENT_CONFIG}}', elementConfig);
         document.getElementById("textarea_example_code").value = exampleCode;
@@ -238,13 +255,9 @@ function executeCode() {
 // Copy content of element/id to clipboard
 function copyToClipboard(id) {
 
-    var range = document.createRange();
-
-    range.selectNode(document.getElementById(id));
-    window.getSelection().removeAllRanges(); // clear current selection
-    window.getSelection().addRange(range); // to select text
+    let textarea = document.getElementById(id);
+    textarea.select();
     document.execCommand("copy");
-    window.getSelection().removeAllRanges();// to deselect
 
 }
 
