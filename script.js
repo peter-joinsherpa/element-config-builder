@@ -136,7 +136,8 @@ function generateExampleCode(idName) {
         if (origin || destination) {
 // OUTBOUND
 
-            segments['Outbound'] = buildSegmentObject(departureDate, origin, destination, 'OUTBOUND');
+            let startLocation = (connection) ? connection : origin;
+            segments['Outbound'] = buildSegmentObject(departureDate, startLocation, destination, 'OUTBOUND');
 
 // Check if only one location selected. If that is the case, set showResults feature-flag to false                
             if ((origin && !destination) || (!origin && destination)) {
@@ -164,7 +165,8 @@ function generateExampleCode(idName) {
 
             document.getElementById("returnDate").disabled = false;
 
-            segments['Return'] = buildSegmentObject(returnDate, destination, origin, 'RETURN');
+            let startLocation = (connection) ? connection : destination;
+            segments['Return'] = buildSegmentObject(returnDate, startLocation, origin, 'RETURN');
 
             if (origin && destination && connection) {
 // Connection/Transit RETURN
