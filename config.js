@@ -16,6 +16,14 @@ const config = {
         "destinationPage": "Dedicated marketing page for a destination",
         "covidPage": "Dedicated page for COVID-19 resources"
     },
+    "features": {
+        "showResults": true,
+        "showSegments": true,
+        "showTitle": true,
+        "showFilterPassport": true,
+        "showFilterVaccinated": true,
+        "enableSegmentEditor": true
+    },
     "language": {
         "ar-SA": "Arabic",
         "zh-CN": "Chinese, Simplified",
@@ -621,19 +629,21 @@ const travellerModel = `travellers: [{
         type: '{{VACCINATION_TYPE}}',
         status: '{{VACCINATION_STATUS}}'
     }]
-}],`;
+}]`;
 
 const segmentObject = `{
-    segmentType: '{{SEGMENT_TYPE}}',
-    origin: {
-        {{ORIGIN_CODE}}: '{{ORIGIN_VALUE}}'
-    },
-    destination: {
-        {{DESTINATION_CODE}}: '{{DESTINATION_VALUE}}'
-    },
+    segmentType: '{{SEGMENT_TYPE}}',{{SEGMENT_SUBTYPE}}    
+    {{ORIGIN_DETAILS}}
+    {{DESTINATION_DETAILS}}    
     travelMode: 'AIR',
     departureDate: '{{DEPARTURE_DATE}}',
     departureTime: '{{DEPARTURE_TIME}}',
     arrivalDate: '{{ARRIVAL_DATE}}',
     arrivalTime: '{{ARRIVAL_TIME}}'
-}`
+}`;
+const segmentObjectOrigin = `origin: {
+        {{ORIGIN_CODE}}: '{{ORIGIN_VALUE}}'
+    },`;
+const segmentObjectDestination = `destination: {
+        {{DESTINATION_CODE}}: '{{DESTINATION_VALUE}}'
+    },`;

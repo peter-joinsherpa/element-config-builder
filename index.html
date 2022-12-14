@@ -49,11 +49,6 @@
             </select>
             <br />   
 
-            <label for="element" class="form-label">Element:</label>
-            <select class="form-select" id="element" onchange="generateExampleCode('element')">                
-            </select>
-            <br />            
-            
             <label for="language" class="form-label">Language:</label>
             <select class="form-select" id="language" onchange="generateExampleCode('language')">
                 <option value="">--</option>
@@ -92,6 +87,11 @@
                 <option value="">--</option>
             </select>
             <br />
+            <label for="connection" class="form-label">Connection/Transit:</label>
+            <select class="form-select" id="connection" onchange="generateExampleCode('connection')">
+                <option value="">Connection not required</option>
+            </select>              
+            <br />
             <label for="destination" class="form-label">Destination:</label>
             <select class="form-select" id="destination" onchange="generateExampleCode('destination')">
                 <option value="">--</option>
@@ -101,8 +101,40 @@
             <label for="departureDate" class="form-label">Departure Date:</label>
             <input type="date" class="form-control" id="departureDate" onchange="generateExampleCode('departureDate')">         
             <br />
-            <label for="returnDate" class="form-label">Return Date: (For Round Trip type)</label>
-            <input type="date" class="form-control" id="returnDate" onchange="generateExampleCode('returnDate')">             
+            <label for="returnDate" class="form-label">Return Date: (For Round Trip only)</label>
+            <input type="date" class="form-control" id="returnDate" disabled onchange="generateExampleCode('returnDate')"> 
+            
+<!-- Feature Flags -->             
+            <br />
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showSegments" onclick="generateExampleCode('showSegments')">
+                <label class="form-check-label" for="showSegments">Toggle navigation between segments</label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showTitle" onclick="generateExampleCode('showTitle')">
+                <label class="form-check-label" for="showTitle">Toggle Title</label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showFilterPassport" onclick="generateExampleCode('showFilterPassport')">
+                <label class="form-check-label" for="showFilterPassport">Toggle Select Passport UI</label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showFilterVaccinated" onclick="generateExampleCode('showFilterVaccinated')">
+                <label class="form-check-label" for="showFilterVaccinated">Vaccination Toggle UI</label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="enableSegmentEditor" onclick="generateExampleCode('enableSegmentEditor')">
+                <label class="form-check-label" for="enableSegmentEditor">"Edit my trip" button</label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="showResults" onclick="generateExampleCode('showResults')">
+                <label class="form-check-label" for="showResults">Toggle Travel Restrictions results on load</label>
+            </div>                                                
         </div>
 
 <!-- Example Code Textarea -->        
