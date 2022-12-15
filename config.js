@@ -599,22 +599,34 @@ const config = {
 const htmlTemplate = `<!DOCTYPE html>
 <html>
     <head>
+
+<!--
+    Include the sherpa° SDK by adding the script tag to the head of your HTML file and include your personalized APP_ID.
+    Note: You will receive a unique APP_ID during onboarding.
+-->
         <script src="{{HOST_SDK}}/widget.js?appId={{APP_ID}}" async></script>
+
     </head>
     <body>
 
+<!-- Place an empty <div> element on your site to act as the mount point. -->
         <div id='sherpa-{{ELEMENT}}-element'></div>
 
         <script type='text/javascript'>
 
+// Set up the element configuration
             const elementConfig = {
                 {{ELEMENT_CONFIG}}
 
             };
 
+// Filter for skdLoaded event then call element            
             function onSherpaEvent(event) {
                 if (event.type === 'sdkLoaded') {
+
+// Sherpa SDK is ready, create and mount new element
                     $sherpa.V2.createElement('{{ELEMENT}}', elementConfig).mount('#sherpa-{{ELEMENT}}-element');
+
                 }
             }
 
