@@ -622,7 +622,7 @@ const htmlTemplate = `<!DOCTYPE html>
 
 // Filter for skdLoaded event then call element            
             function onSherpaEvent(event) {
-                if (event.type === 'sdkLoaded') {
+                if (event.type === 'sdkLoaded' && event.scope=='@joinsherpa/v2') {
 
 // Sherpa SDK is ready, create and mount new element
                     $sherpa.V2.createElement('{{ELEMENT}}', elementConfig).mount('#sherpa-{{ELEMENT}}-element');
