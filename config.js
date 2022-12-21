@@ -604,7 +604,7 @@ const htmlTemplate = `<!DOCTYPE html>
     Include the sherpa° SDK by adding the script tag to the head of your HTML file and include your personalized APP_ID.
     Note: You will receive a unique APP_ID during onboarding.
 -->
-        <script src="{{HOST_SDK}}/widget.js?appId={{APP_ID}}" async></script>
+        <script src="{{HOST_SDK}}/widget.js?appId={{APP_ID}}" defer></script>
 
     </head>
     <body>
